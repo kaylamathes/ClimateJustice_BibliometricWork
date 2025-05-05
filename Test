@@ -1,0 +1,8 @@
+predicted_ALD_allDOY_30 <- predicted_ALD_allDOY_2%>%
+  filter(tsf <= 30)
+
+ggplot(data = predicted_ALD_allDOY_30, aes(x = Predicted_Doy, y = predicted_ALD_change)) +
+  geom_point()+ 
+  facet_wrap(~tsf) +xlab("DOY") + ylab("Predicted Change in Thaw Depth (cm)")
+
+ggsave("TransientThaw/Output/ThawDepthCurveExamples/Predicted_ALD_change.png", height = 10, width= 10)
